@@ -1,0 +1,57 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "1.9.1",
+    "cra-template-overwolf-typescript-redux": "3.0.1",
+    "i18next": "^22.4.6",
+    "overwolf-hooks": "3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "12.1.1",
+    "react-redux": "^8.0.5",
+    "react-scripts": "5.0.1",
+    "web-vitals": "3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-remote-server": "node remotedev-server",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "pack-overwolf": "node create-production-overwolf-build",
+    "dist-overwolf": "cd build && tar -acf ../dist.v$npm_package_version.zip * && cd -",
+    "create-opk": "cd build/app && tar -acf ../../dist-opk.v$npm_package_version.zip * && cd - && node create-opk",
+    "build:overwolf": "npm run build && npm run pack-overwolf && npm run dist-overwolf && npm run create-opk"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@overwolf/types": "^3.12.0",
+    "@types/react-dom": "^18.0.10",
+    "@types/remote-redux-devtools": "^0.5.4",
+    "remote-redux-devtools": "^0.5.16",
+    "remotedev-server": "^0.3.1",
+    "typescript": "^4.9.4"
+  },
+  "homepage": "."
+}
